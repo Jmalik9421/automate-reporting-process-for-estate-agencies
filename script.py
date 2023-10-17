@@ -40,7 +40,7 @@ def reset():
         os.listdir(dir_copies_images_abs_path)
     )
 
-def resize_without_reset():
+def resize():
     width_input = pyip.inputNum(
         prompt = "Please enter desired width: ",
         greaterThan = 0
