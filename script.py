@@ -86,6 +86,20 @@ def resize():
 
 
 
+# ------------ RESET REQUIRED ------------- # 
+if og_images_list != copies_images_list:
+    print("Images have been edited.")
+    reset_input = pyip.inputYesNo("Would you like to reset?: ")
+
+    if reset_input == "yes":
+        (og_images_list, copies_images_list) = reset()                  # re-assign variables to unpacked returned tuple which contains new named images in respective directories.
+        (og_images_list, copies_images_list) = resize()
+    else:
+        resize_input = pyip.inputYesNo("Would you like to resize the images?: ")
+        if resize_input == "yes":
+            (og_images_list, copies_images_list) = resize()
+# ------------ RESET REQUIRED ------------- # 
+
 # -------------------------- EDITING IMAGES -------------------------- #
 
 
