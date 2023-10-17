@@ -1,9 +1,9 @@
-# ----------------------- PRIMING DIRECTORIES ----------------------- #
+# ------------------------ IMPORTING MODULES ------------------------ #
 import os
 import shutil
 import openpyxl
 import pyinputplus as pyip
-# ----------------------- PRIMING DIRECTORIES ----------------------- #
+# ------------------------ IMPORTING MODULES ------------------------ #
 
 
 
