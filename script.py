@@ -165,8 +165,37 @@ while type(row_input) != int:
         prompt = "Please enter desired width: ",
         greaterThan = 0
     )
-
 # ----------- PRIMING INSERTION ----------- # 
+
+
+
+# ------------- OPENING SHEET ------------- # 
+workbook = openpyxl.load_workbook(file_workbook_abs_path)
+worksheet_active = workbook.active
+# ------------- OPENING SHEET ------------- # 
+
+
+
+# ------------- PRIMING IMAGES ------------ # 
+greatest_width_list = []
+for i in list(copies_images_dict.values()):
+    greatest_width_list.append(i[1])
+
+greatest_height_list = []
+for i in list(copies_images_dict.values()):
+    greatest_height_list.append(i[2])
+
+def greatest_value(lst):
+    lst.sort()
+    return lst[-1]
+
+width_corrective_factor = (1 / 7)
+height_corrective_factor = (100 / 133)
+
+greatest_width = greatest_value(greatest_width_list) * width_corrective_factor      # corrective factor as excel increases dimensions substantially. Testing confirmed not due to code. 
+greatest_height = greatest_value(greatest_height_list) * height_corrective_factor   # corrective factor as excel increases dimensions substantially. Testing confirmed not due to code. 
+# ------------- PRIMING IMAGES ------------ # 
+
 
 
 # ------------------- INSERTING IMAGES TO WORKBOOK ------------------- #
