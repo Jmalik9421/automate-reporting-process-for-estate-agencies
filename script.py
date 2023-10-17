@@ -212,6 +212,20 @@ def insert_vertically():
             current_image,
             f"{column_input}{row_input + i}"                                        # columns stay constant
         )
+
+def insert_horizontally():
+    for i in range(len(copies_images_dict)):
+        # EDITING GRID DIMENSIONS #
+        worksheet_active.column_dimensions[columns[columns.index(column_input) + i]].width = greatest_width
+        worksheet_active.row_dimensions[row_input].height = greatest_height
+        # EDITING GRID DIMENSIONS #
+
+        current_image_path = dir_copies_images_abs_path + "\\" + f"{copies_images_dict[i][0]}"
+        current_image = Image_openpyxl(current_image_path)
+        worksheet_active.add_image(
+            current_image,
+            f"{columns[columns.index(column_input) + i]}{row_input + i}"            # rows stay constant                                # columns stay constant
+        )
 # ------------ INSERTING IMAGES ----------- # 
 
 # ------------------- INSERTING IMAGES TO WORKBOOK ------------------- #
