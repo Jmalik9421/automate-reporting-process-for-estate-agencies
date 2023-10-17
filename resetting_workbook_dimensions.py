@@ -1,7 +1,11 @@
+# ----------------------- PRIMING DIRECTORIES ----------------------- #
 import os
 import shutil
 import openpyxl
 import pyinputplus as pyip
+# ----------------------- PRIMING DIRECTORIES ----------------------- #
+
+
 
 # ----------------------- PRIMING DIRECTORIES ----------------------- #
 file_workbook_abs_path = os.path.abspath(".\Spreadsheets\\workbook.xlsx")
