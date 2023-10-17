@@ -39,6 +39,49 @@ def reset():
         os.listdir(dir_og_images_abs_path),
         os.listdir(dir_copies_images_abs_path)
     )
+
+def resize_without_reset():
+    width_input = pyip.inputNum(
+        prompt = "Please enter desired width: ",
+        greaterThan = 0
+    )
+    while type(width_input) != int:
+        print(f"'{width_input}' is not an integer.")
+        width_input = pyip.inputNum(
+            prompt = "Please enter desired width: ",
+            greaterThan = 0
+        )
+    
+    height_input = pyip.inputNum(
+        prompt = "Please enter desired height: ",
+        greaterThan = 0
+    )
+    while type(height_input) != int:
+        print(f"'{height_input}' is not an integer.")
+        height_input = pyip.inputNum(
+            prompt = "Please enter desired height: ",
+            greaterThan = 0
+        )
+
+    for item, image in enumerate(copies_images_list):
+        copies_current_image = dir_copies_images_abs_path + f"\\{image}" 
+        current_image = Image_PIL.open(copies_current_image)            
+
+        if width_input > current_image.width or height_input > current_image.height:
+            print(f"'{image}' is being upsacled. This will cause it to be stretched. Image quality will suffer.")
+
+        new_image = current_image.resize((width_input, height_input)) 
+        new_image.save(
+            dir_copies_images_abs_path
+            + "\\"
+            + f"{width_input}x{height_input}_image{item}.jpg"
+        )
+        os.remove(copies_current_image)
+    
+    return(
+        os.listdir(dir_og_images_abs_path),
+        os.listdir(dir_copies_images_abs_path)
+    )
 # ---------- DEFINING FUNCTIONS ----------- # 
 
 
