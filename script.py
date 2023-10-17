@@ -100,6 +100,23 @@ if og_images_list != copies_images_list:
             (og_images_list, copies_images_list) = resize()
 # ------------ RESET REQUIRED ------------- # 
 
+
+# ---------- RESET NOT REQUIRED ----------- # 
+else:
+    resize_input = pyip.inputYesNo("Would you like to resize the images?: ")
+    if resize_input == "yes":
+        (og_images_list, copies_images_list) = resize()
+# ---------- RESET NOT REQUIRED ----------- # 
+
+
+
+copies_images_dict = {}
+for index,name in enumerate(copies_images_list):
+    copies_current_image = dir_copies_images_abs_path + f"\\{name}"
+    current_image = Image_PIL.open(copies_current_image)
+    width = current_image.width
+    height = current_image.height
+    copies_images_dict.setdefault(index, [name, width, height])
 # -------------------------- EDITING IMAGES -------------------------- #
 
 
