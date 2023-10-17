@@ -141,6 +141,34 @@ for i in range(len(columns)):
 # --- ROWS ---- #
 # ------- PRIMING GRID COORDINATES -------- # 
 
+
+
+# ----------- PRIMING INSERTION ----------- # 
+alignment_input = pyip.inputChoice(
+    prompt = "Would you like for the images to be inserted vertically or horizontally?: ",
+    choices = ["vertically", "v", "horizontally", "v"]
+)
+
+column_input = pyip.inputChoice(
+    prompt = "Please enter the column you would like to start inserting the images on [A-Z, AA-ZZ]: ",
+    choices = columns
+)
+
+row_input = pyip.inputNum(
+    prompt = "Please enter the row you would like to start inserting the images on [1-702]: ",
+    greaterThan = 0
+)
+
+while type(row_input) != int:
+    print(f"'{row_input}' is not an integer.")
+    row_input = pyip.inputNum(
+        prompt = "Please enter desired width: ",
+        greaterThan = 0
+    )
+
+# ----------- PRIMING INSERTION ----------- # 
+
+
 # ------------------- INSERTING IMAGES TO WORKBOOK ------------------- #
 
 
