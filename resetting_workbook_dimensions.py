@@ -31,6 +31,54 @@ for i in range(len(columns)):
     i += 1                                                              # 1 index rows as in workbook
     rows.append(i)
 # --- ROWS ---- #
+# ------- PRIMING GRID COORDINATES -------- # 
+
+
+
+# ------- PRIMING GRID DIMENSIONS --------- # 
+width_corrective_factor = (1 / 7)
+height_corrective_factor = (100 / 133)
+
+# --------- WIDTH --------- #
+width_primed = pyip.inputNum(
+    prompt = "Enter the width you want for each cell to be primed to (default: 64): ",
+    greaterThan = 0
+)
+
+# VALIDATING INPUT #
+while type(width_primed) != int:
+    print(f"'{width_primed}' is not an integer.")
+    width_primed = pyip.inputNum(
+        prompt = "Enter the width you want for each cell to be primed to (default: 64): ",
+        greaterThan = 0
+    )
+# VALIDATING INPUT #
+
+width_primed *= width_corrective_factor
+# --------- WIDTH --------- #
+
+
+
+# --------- HEIGHT -------- #
+height_primed = pyip.inputNum(
+    prompt = "Enter the height you want for each cell to be primed to (default: 20): ",
+    greaterThan = 0
+)
+
+# VALIDATING INPUT #
+while type(height_primed) != int:
+    print(f"'{height_primed}' is not an integer.")
+    height_primed = pyip.inputNum(
+        prompt = "Enter the height you want for each cell to be primed to (default: 20): ",
+        greaterThan = 0
+    )
+# VALIDATING INPUT #
+
+height_primed *= height_corrective_factor
+# --------- HEIGHT -------- #
+
+# ------- PRIMING GRID DIMENSIONS --------- # 
+
 
 
 
