@@ -198,6 +198,22 @@ greatest_height = greatest_value(greatest_height_list) * height_corrective_facto
 
 
 
+# ------------ INSERTING IMAGES ----------- # 
+def insert_vertically():
+    for i in range(len(copies_images_dict)):
+        # EDITING GRID DIMENSIONS #
+        worksheet_active.column_dimensions[column_input].width = greatest_width
+        worksheet_active.row_dimensions[row_input + 1].height = greatest_height
+        # EDITING GRID DIMENSIONS #
+
+        current_image_path = dir_copies_images_abs_path + "\\" + f"{copies_images_dict[i][0]}"
+        current_image = Image_openpyxl(current_image_path)
+        worksheet_active.add_image(
+            current_image,
+            f"{column_input}{row_input + i}"                                        # columns stay constant
+        )
+# ------------ INSERTING IMAGES ----------- # 
+
 # ------------------- INSERTING IMAGES TO WORKBOOK ------------------- #
 
 
