@@ -226,8 +226,15 @@ def insert_horizontally():
             current_image,
             f"{columns[columns.index(column_input) + i]}{row_input + i}"            # rows stay constant                                # columns stay constant
         )
-# ------------ INSERTING IMAGES ----------- # 
 
+if alignment_input == "vertically" or alignment_input == "v":
+    insert_vertically
+
+elif alignment_input == "horizontally" or alignment_input == "h":
+    insert_horizontally
+
+workbook.save(file_workbook_abs_path)
+# ------------ INSERTING IMAGES ----------- # 
 # ------------------- INSERTING IMAGES TO WORKBOOK ------------------- #
 
 
