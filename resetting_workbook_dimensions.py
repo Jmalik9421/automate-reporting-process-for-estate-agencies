@@ -4,13 +4,15 @@ import openpyxl
 import pyinputplus as pyip
 
 # ----------------------- PRIMING DIRECTORIES ----------------------- #
-file_workbook_abs = os.path.abspath(".\Spreadsheets\\workbook.xlsx")
+file_workbook_abs_path = os.path.abspath(".\Spreadsheets\\workbook.xlsx")
 # ----------------------- PRIMING DIRECTORIES ----------------------- #
 
 # ----------------------- RESETTING WORKBOOK ------------------------ #
 
+
+
 # ------------- OPENING SHEET ------------- # 
-workbook = openpyxl.load_workbook(file_workbook_abs)
+workbook = openpyxl.load_workbook(file_workbook_abs_path)
 worksheet_active = workbook.active
 # ------------- OPENING SHEET ------------- # 
 
@@ -77,8 +79,17 @@ while type(height_primed) != int:
 height_primed *= height_corrective_factor
 # --------- HEIGHT -------- #
 
+
+
+for i in range(len(columns)):
+    worksheet_active.column_dimensions[columns[i]].width = width_primed
+    worksheet_active.row_dimensions[i + 1].height = height_primed       # 1 indexing row
 # ------- PRIMING GRID DIMENSIONS --------- # 
 
+
+
+workbook.save(file_workbook_abs_path)
+# ----------------------- RESETTING WORKBOOK ------------------------ #
 
 
 
